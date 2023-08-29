@@ -3,7 +3,7 @@ This class helps you write prompts faster and it follows good prompt engineering
 
 notes:
 A prompt is made up up contexts and instructions, that are both delimited. 
-So, when writing the prompt we specify the delimits too, on top of the contexts and instructions.
+So, when writing the prompt we specify the delimiters too, on top of the contexts and instructions.
 
 <table1>
 ...
@@ -14,40 +14,33 @@ So, when writing the prompt we specify the delimits too, on top of the contexts 
 <table2>
 
 <instructions>
-- step 1
-- step 2
+step 1. step 2.
 <instructions>
 """
 
 class PromptDesigner():
     
-    def design(self, instructions:list, instructions_delimiter = "instructions", contexts: list = [], context_delimiters: list = []) -> str:
+    def design(self, instructions:list, instructions_delimiters: list, contexts: list = [], context_delimiters: list = []) -> str:
         
         prompt = ""
         
         if len(contexts) != 0:
             prompt = self._delimit(contexts, context_delimiters)
 
-        prompt += self._delimit(instructions, instructions_delimiter)
+        prompt += self._delimit(instructions, instructions_delimiters)
         
         return prompt
          
             
-    def _delimit(self, content: list, delimiters):
-        assert isinstance(content, list)
+    def _delimit(self, content: list, delimiters: list):
+        assert isinstance(content, list) and isinstance(delimiters, list)
+        assert len(content) == len(delimiters)
 
         prompt = ""
 
-        if isinstance(delimiters, list):
-            assert len(content) == len(delimiters)
-            for c, d in zip(content, delimiters): 
-                prompt += f"<{d}>\n{c}\n<{d}>\n\n"
+        content = [". ".join(c) if isinstance(c, list) else c for c in content]
 
-        elif isinstance(delimiters, str):
-            prompt += f"<{delimiters}>\n"
-            for c in content:
-                prompt += f"- {c}\n"
-            prompt += f"<{delimiters}>\n\n"
+        for c, d in zip(content, delimiters): 
+            prompt += f"<{d}>\n{c}\n<{d}>\n\n"
                 
         return prompt
-

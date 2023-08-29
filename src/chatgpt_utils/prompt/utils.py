@@ -3,9 +3,8 @@ import yaml
 def read_instructions(path):
     raw = read_yaml(path)
     assert len(raw) > 0
-    delimiter, instructions = list(raw.items())[0]
-    assert isinstance(instructions, list)
-    return delimiter, instructions
+    delimiters, instructions  = list(raw.keys()), list(raw.values())
+    return delimiters, instructions
 
 
 def read_yaml(path):
