@@ -1,2 +1,2 @@
 from .PromptDesigner import PromptDesigner
-from .utils import read_instructions, read_yaml
+from .utils import read_prompt, read_yaml
