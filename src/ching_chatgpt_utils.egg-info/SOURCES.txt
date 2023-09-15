@@ -12,4 +12,5 @@ src/chatgpt_utils/prompt/utils.py
 src/ching_chatgpt_utils.egg-info/PKG-INFO
 src/ching_chatgpt_utils.egg-info/SOURCES.txt
 src/ching_chatgpt_utils.egg-info/dependency_links.txt
+src/ching_chatgpt_utils.egg-info/requires.txt
 src/ching_chatgpt_utils.egg-info/top_level.txt
