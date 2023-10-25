@@ -1,6 +1,3 @@
-"""
-Helpful functions for parsing ChatGPT Output
-"""
 import regex as re
 import json
 
