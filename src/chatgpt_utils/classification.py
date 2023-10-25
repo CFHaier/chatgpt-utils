@@ -1,4 +1,4 @@
-from openai.ChatCompletion import create
+import openai
 from .parse import extract_json_from_string
 
 
@@ -20,7 +20,7 @@ def classify_query_chatgpt(instructions: str, query: str, categories: list, out_
     assert isinstance(instructions, str) and isinstance(query, str) and isinstance(categories, list) and isinstance(out_value, str) and isinstance(key, str)
     
     # ask chatgpt to classify
-    completion = create(
+    completion = openai.ChatCompletion.create(
                     model="gpt-4",    # gpt-4|gpt-3.5-turbo
                     messages = [{"role":"system", "content":instructions}, {"role":"user", "content":query}],
                     top_p = 0.2,
@@ -30,7 +30,7 @@ def classify_query_chatgpt(instructions: str, query: str, categories: list, out_
 
     # parse response
     json_response = extract_json_from_string(response)
-    
+
     # output validation
     category = json_response.get(key)
     if category is None or category not in categories+[out_value]:

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: ching-chatgpt-utils
-Version: 0.0.6
+Version: 0.0.8
 Summary: This package has some useful functions for ChatGPT workflows - Writing Prompts
 Home-page: https://github.com/pypa/sampleproject
 Author: Ching Fhen
