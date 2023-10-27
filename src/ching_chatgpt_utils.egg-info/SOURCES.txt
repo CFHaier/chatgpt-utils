@@ -5,7 +5,9 @@ setup.cfg
 setup.py
 src/chatgpt_utils/__init__.py
 src/chatgpt_utils/classification.py
-src/chatgpt_utils/embeddings.py
+src/chatgpt_utils/embeddings/__init__.py
+src/chatgpt_utils/embeddings/embeddings.py
+src/chatgpt_utils/embeddings/utils.py
 src/chatgpt_utils/parse/__init__.py
 src/chatgpt_utils/parse/delimiter_parser.py
 src/chatgpt_utils/parse/json_parser.py
