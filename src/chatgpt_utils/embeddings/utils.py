@@ -10,7 +10,7 @@ def cosine(list1, list2):
     if len(list1) != len(list2):
         raise ValueError("Both lists must have the same length")
 
-    dot = dot_product(list1, list2)
+    dot_value = dot(list1, list2)
     mag1 = magnitude(list1)
     mag2 = magnitude(list2)
 
