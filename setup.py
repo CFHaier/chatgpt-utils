@@ -5,7 +5,7 @@ with open('README.md','r') as f:
 
 setup(
     name = 'ching_chatgpt_utils',
-    version = "0.0.12",
+    version = "0.1.0",
     packages = find_packages(),
     install_requires = [
         'regex',
