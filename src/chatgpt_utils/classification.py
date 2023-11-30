@@ -15,13 +15,13 @@ key - the key that maps to the category {'key':'category'}
 OUTPUT:
 category - [category1|category2|out_value]
 """
-def classify_query_chatgpt(instructions: str, query: str, categories: list, out_value: str = "undefined", key:str = "category"):
+def classify_query_chatgpt(instructions: str, query: str, categories: list, out_value: str = "undefined", key:str = "category", model = "gpt-4"):
     # type validation
     assert isinstance(instructions, str) and isinstance(query, str) and isinstance(categories, list) and isinstance(out_value, str) and isinstance(key, str)
     
     # ask chatgpt to classify
     completion = openai.ChatCompletion.create(
-                    model="gpt-4",    # gpt-4|gpt-3.5-turbo
+                    model=model,    # gpt-4|gpt-3.5-turbo
                     messages = [{"role":"system", "content":instructions}, {"role":"user", "content":query}],
                     top_p = 0.2,
                     temperature = 0
