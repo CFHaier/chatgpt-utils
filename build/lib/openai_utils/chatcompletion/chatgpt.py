@@ -2,8 +2,6 @@
 A wrapper for openai.ChatCompletion
 """
 import openai
-import sys
-sys.path.append("..")
 from config.openai_config import OpenAIConfig, AzureOpenAIConfig
 from abc import ABC, abstractmethod
 
@@ -23,7 +21,6 @@ class ChatGPT(ABC):
 class OpenAIChatGPT(ChatGPT):
 
     def __init__(self, config: OpenAIConfig):
-        assert isinstance(config, OpenAIConfig)
         self.config = config
 
     def respond(self, model, messages, **arguments):
@@ -44,7 +41,6 @@ class OpenAIChatGPT(ChatGPT):
 class AzureOpenAIChatGPT(ChatGPT):
 
     def __init__(self, config: AzureOpenAIConfig):
-        assert isinstance(config, AzureOpenAIConfig)
         self.config = config
 
     def respond(self, engine, messages, **arguments):

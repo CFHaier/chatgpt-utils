@@ -1,2 +1,3 @@
 from .utils import dot, cosine
-from .embeddings import HuggingFaceAPIEmbedder, OpenAIAPIEmbedder
+from .huggingface_embeddings import HuggingFaceAPIEmbedder
+from .openai_embeddings import OpenAIAPIEmbedder

@@ -15,7 +15,6 @@ class Embedder(ABC):
 
 class HuggingFaceAPIEmbedder(Embedder):
     def __init__(self, config: HuggingFaceConfig):
-        assert isinstance(config, HuggingFaceConfig)
         self.config = config
 
     def embed(self, model: str, texts: Union[List, str]):
@@ -26,7 +25,6 @@ class HuggingFaceAPIEmbedder(Embedder):
 
 class OpenAIAPIEmbedder(Embedder):
     def __init__(self, config: OpenAIConfig):
-        assert isinstance(config, OpenAIConfig)
         self.config = config
 
     def embed(self, model: str, texts: Union[List, str]):

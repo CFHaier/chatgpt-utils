@@ -5,12 +5,13 @@ with open('README.md','r') as f:
 
 setup(
     name = 'ching_chatgpt_utils',
-    version = "0.1.1",
+    version = "0.1.5",
     packages = find_packages(),
     install_requires = [
         'regex',
         'openai',
-        'PyYAML'
+        'PyYAML',
+        'pydantic'
     ],
     long_description = description,
     long_description_content_type = "text/markdown",
